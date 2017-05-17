@@ -14,4 +14,4 @@ Como deveriam ficar = [bitsbits...bits]
 
 Mudar praticamente todo o código.
 
-A função de fitness para otimização é teoricamente Rosenbrook; olhar no arquivo FuncoesTestes
+A função de fitness para otimização é teoricamente Rosenbrook; olhar no arquivo FuncoesTeste
