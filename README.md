@@ -6,4 +6,10 @@ sorry, i'm doing this for a my graduation... most part of the comments in the co
 
 what else...
 Bem, minha lista de afazeres:
-- transformar condigos que tratam em int para char[] ara usar binários e a assim poder usar a base de comparação.
+- transformar condigos que tratam em int para char[]
+  - para usar binários e a assim poder usar a base de comparação.
+
+Cromossomos atuais = [int ... int]
+Como deveriam ficar = [bitsbits...bits]
+
+Mudar praticamente todo o código.
