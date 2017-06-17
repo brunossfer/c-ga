@@ -6,11 +6,12 @@ sorry, i'm doing this for a my graduation... most part of the comments in the co
 
 what else...
 Bem, minha lista de afazeres:
-- transformar condigos que tratam em int para char[]
-  - para usar binários e a assim poder usar a base de comparação.
+- transformar condigos que tratam em int float
 
 Cromossomos atuais = [int ... int]
-Como deveriam ficar = [bitsbits...bits]
+Como deveriam ficar = [float... float]
+
+Utilizar interploação; 0 a 1 para melhor distribuição
 
 Mudar praticamente todo o código.
 
