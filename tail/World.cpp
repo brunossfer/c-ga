@@ -23,20 +23,20 @@ void World :: generatePopulation()
 void World :: generateEvaluation()
 {
    int* gene = new int[MAXCROMGENE];
-   int evaluation;
+   int evaluation, sum;
    for (int i = 0; i < TOTALPOPULATION; i++)   // para cada individuo da populacao
    {
       gene = population[i] -> cloneGene();
-      evaluation = 0;
-
+      sum = evaluation = 0;
+      
        //resolve a funcao f(x) = sum 100*(x(i)^2 - x(i+1))^2 + (1 - x(i))^2;
        // adiciona a pontuacao obtida como metrica de avalicao ao cromossomo
       for (int j = 0; j < MAXCROMGENE; j++)
       {
-         evaluation += (j+1) * gene[j];
+         sum += 100 * pow((pow(gene[j],2) - gene[j+1]),2) + pow((1 - gene[j]),2));
       }
-      evaluation = evaluation - 30;
-
+      evaluation = sum;
+      
       population[i] -> setEvaluation(abs(evaluation));
    }
 
