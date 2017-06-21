@@ -33,13 +33,12 @@ void World :: generateEvaluation()
        // adiciona a pontuacao obtida como metrica de avalicao ao cromossomo
       for (int j = 0; j < MAXCROMGENE; j++)
       {
-         sum += 100 * pow((pow(gene[j],2) - gene[j+1]),2) + pow((1 - gene[j]),2));
+         sum += 100 * pow((pow(gene[j],2)) - gene[j+1]),2) + pow((1 - gene[j]),2));
       }
       evaluation = sum;
       
-      population[i] -> setEvaluation(abs(evaluation));
+      population[i] -> setEvaluation(evaluation);
    }
-
    free(gene);
 }
 
@@ -48,7 +47,6 @@ void World :: generateProbability()
 {
    double *fitPerUnit   = new double[TOTALPOPULATION];
    double *probability = new double[TOTALPOPULATION];
-
    double fitTotal =  0;
 
     // fitness stage
@@ -56,7 +54,7 @@ void World :: generateProbability()
    {
       int evaluation = population[i] -> getEvaluation();
 
-      double fit = 1.0f / (1+ evaluation);    //calcula o fitness
+      double fit = 1.0f / (1+ abs(evaluation));    //calcula o fitness
       fitPerUnit[i] =  fit;                   //fitness de cada individuo
       fitTotal += fitPerUnit[i];              //valor total fitness
    }
@@ -136,7 +134,7 @@ void World :: crossOver()
          int randomGene = rand() % (MAXCROMGENE + 1);    // escolhe cromossomo a ser herdado
          bool search = true;
 
-        // procura indivio  diferente que esteja dentro da % de crossOver para cruzamento
+        // procura individuo  diferente que esteja dentro da % de crossOver para cruzamento
         //caso nao encontre cruza com ele mesmo mantendo o valor
          while (search)
          {
@@ -151,7 +149,6 @@ void World :: crossOver()
          }
       }
    }
-
    free(randomValue);
 }
 
