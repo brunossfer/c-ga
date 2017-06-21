@@ -28,7 +28,7 @@ void World :: generateEvaluation()
    {
       gene = population[i] -> cloneGene();
       evaluation = 0;
-      
+
        //resolve a funcao f(x) = sum 100*(x(i)^2 - x(i+1))^2 + (1 - x(i))^2;
        // adiciona a pontuacao obtida como metrica de avalicao ao cromossomo
       for (int j = 0; j < MAXCROMGENE; j++)
@@ -36,7 +36,7 @@ void World :: generateEvaluation()
          evaluation += (j+1) * gene[j];
       }
       evaluation = evaluation - 30;
-      
+
       population[i] -> setEvaluation(abs(evaluation));
    }
 
@@ -55,7 +55,7 @@ void World :: generateProbability()
    for (int i = 0; i < TOTALPOPULATION ; i++)
    {
       int evaluation = population[i] -> getEvaluation();
-   
+
       double fit = 1.0f / (1+ evaluation);    //calcula o fitness
       fitPerUnit[i] =  fit;                   //fitness de cada individuo
       fitTotal += fitPerUnit[i];              //valor total fitness
@@ -67,7 +67,7 @@ void World :: generateProbability()
       double newValue;
       newValue = (double)(fitPerUnit[j] / fitTotal);
       probability[j]  = newValue;
-   
+
    }
 
     // Roulette Wheel stage
@@ -95,7 +95,7 @@ void World :: selectNextGeneration()
    for (int i = 0; i < TOTALPOPULATION; i++)
    {
       double randomValue = ((rand()  % 99) + 1.0)  / 100;
-   
+
       int position = 0;
       bool search = true;
       while (search)
@@ -131,11 +131,11 @@ void World :: crossOver()
    {
       if (randomValue[i] < CROSSOVER)                    // verifica se o random esta dentro da % de taxa de cruzamento
       {
-      
+
          int j = (i+1) % TOTALPOPULATION;                // procurar de forma circular
          int randomGene = rand() % (MAXCROMGENE + 1);    // escolhe cromossomo a ser herdado
          bool search = true;
-      
+
         // procura indivio  diferente que esteja dentro da % de crossOver para cruzamento
         //caso nao encontre cruza com ele mesmo mantendo o valor
          while (search)
@@ -168,7 +168,7 @@ void World :: mutation()
       int cromoPos = rand() % TOTALPOPULATION;
       int genePos = rand() % MAXCROMGENE;
       int newGene = rand() % MAXRANDOM;
-   
+
       population[cromoPos] -> setGene(genePos, newGene);
    }
 }
